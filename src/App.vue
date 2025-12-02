@@ -1,10 +1,10 @@
 <template>
-  <h1 :class="myCondition ? 'highlight' : 'red'">HOLA</h1>
+  <h1 :class="{ highlight: myCondition, red: true }">HOLA</h1>
 </template>
 
 <script setup>
 import { ref } from 'vue';
-let myCondition = false
+let myCondition = true
 </script>
 
 <style scoped>
