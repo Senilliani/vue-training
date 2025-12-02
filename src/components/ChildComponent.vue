@@ -1,20 +1,27 @@
 <template>
-    <h2>
-        Componente hijo
-    </h2>
-
-    <p>{{ message }}</p>
-    <p v-if="person">{{ person.sex }} - {{ person.age }}</p>
+    <div class="child">
+        <h2>
+            Componente hijo
+        </h2>
+        <p>Nombre de usuario {{ userName }}</p>
+        <button @click="login" style="margin-bottom: 20px;">Iniciar Sesión</button>
+    </div>
 </template>
 
 <script setup>
-defineProps({
-    message: String,
-    person: {
-        sex: String,
-        age: Number
-    }
-})
+import { ref } from 'vue';
+const emit = defineEmits(["login"])
+
+const login = () => {
+    emit("login", userName.value)
+}
+
+const userName = ref("Brenda")
 </script>
 
-<style scoped></style>
+<style scoped>
+.child {
+    border: 5px solid black;
+    text-align: center;
+}
+</style>

@@ -1,15 +1,16 @@
 <template>
-  <ChildComponent :message="text" :person="person"></ChildComponent>
-  <ChildComponent :message="text"></ChildComponent>
+  <h2>Hola {{ displayName }} desde el padre</h2>
+  <ChildComponent @login="setName"></ChildComponent>
 </template>
 
 <script setup>
+import { ref } from 'vue';
 import ChildComponent from './components/ChildComponent.vue';
 
-const text = "desde el padre"
-const person = {
-  sex: "mujer",
-  age: 30
+const displayName = ref("")
+
+const setName = (e) => {
+  displayName.value = e;
 }
 </script>
 
