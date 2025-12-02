@@ -1,18 +1,13 @@
 <template>
-  <HeaderComponent></HeaderComponent>
-  <h1>HOLA</h1>
-  <h2 @click="addOne">{{ number }}</h2>
+  <h1 :id="myId">HOLA</h1>
+  <input type="text" :value=myValue>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import { ref } from 'vue';
-import HeaderComponent from './components/HeaderComponent.vue'
 
-const number = ref(0);
-
-const addOne = () => {
-  number.value++
-}
+const myId = "bananas"
+const myValue = ref("some value")
 
 </script>
 
