@@ -5,7 +5,7 @@
 </template>
 
 <script setup>
-import { computed, ref, watch } from 'vue';
+import { computed, ref, watchEffect } from 'vue';
 
 const userName = ref("Mar") // esta es la variable que se quiere vigilar
 
@@ -13,9 +13,10 @@ const setName = computed(() => {
   return userName.value = "María"
 })
 
-watch(userName, (newValue, oldValue) => {
-  console.log("username modified", newValue, oldValue)
-}, { immediate: true })
+// diferencia con el watch es que no se necesita pasar la variable como primer parámetro y que siempre es immediate
+watchEffect(() => {
+  console.log("variable que estoy vigilando:", userName.value)
+})
 </script>
 
 <style scoped></style>
