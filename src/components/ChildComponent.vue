@@ -1,13 +1,8 @@
 <template>
     <div class="child">
+        <slot name="top"></slot>
         <h2>Componente hijo</h2>
-        <p>
-            recibe un bloque de código HTML y tiene la etiqueta SLOT
-        </p>
-        <slot>
-            <h3>(Contenido por defecto que lo escribe el hijo dentro de la etiqueta slot para cuando el padre no envía
-                nada)</h3>
-        </slot>
+        <slot name="bottom"></slot>
     </div>
 </template>
 
