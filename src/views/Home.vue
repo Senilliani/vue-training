@@ -1,11 +1,17 @@
 <template>
-    <div>
+    <HeaderComponent />
+    <h2>
         HOME
-    </div>
+    </h2>
 </template>
 
 <script setup>
+import HeaderComponent from '../components/HeaderComponent.vue';
 
 </script>
 
-<style scoped></style>
+<style scoped>
+h2 {
+    text-align: center;
+}
+</style>
