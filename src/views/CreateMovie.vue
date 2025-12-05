@@ -32,7 +32,7 @@ const handleSubmit = () => {
         alert("Debe tener al menos el título")
         return
     }
-    movieStore.addMovie(movie)
+    movieStore.addMovie({ ...movie }) // paso por valor para no modificar el original
 }
 </script>
 
