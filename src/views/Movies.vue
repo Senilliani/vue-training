@@ -4,7 +4,7 @@
         Movies
     </h2>
     <ul>
-        <li v-for="movie in movies" :key="movie.title">
+        <li v-for="movie in movieStore.movies" :key="movie.title">
             <h3>{{ movie.title }}</h3>
             <p>Duration: {{ movie.duration }}</p>
             <p>Director: {{ movie.director }} </p>
@@ -13,17 +13,10 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
 import HeaderComponent from '../components/HeaderComponent.vue';
+import { useMovieStore } from '../stores/movie';
 
-const movies = ref([
-    {
-        title: "Inception", duration: "148 min", director: "BS"
-    },
-    {
-        title: "Lord", duration: "169 min", director: "BS"
-    }
-])
+const movieStore = useMovieStore()
 </script>
 
 <style scoped>
