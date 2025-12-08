@@ -1,7 +1,13 @@
 <template>
-    <header class="header">
+    <header class="nav-list">
+        <div class="login-bar">
+            <p v-if="userStore.user" class="username">
+                {{ userStore.user.name }}
+            </p>
+            <button @click="userStore.getUser()">Iniciar sesión</button>
+        </div>
         <nav>
-            <ul class="nav-list">
+            <ul>
                 <li><router-link class="link" to="/">Home Page</router-link></li>
                 <li><router-link class="link" to="/movies">Movies</router-link></li>
                 <li><router-link class="link" :to="{ name: 'create' }">Create movies</router-link></li>
@@ -11,6 +17,9 @@
 </template>
 
 <script setup>
+import { useUserStore } from '../stores/user';
+
+const userStore = useUserStore()
 </script>
 
 <style scoped>
@@ -23,6 +32,25 @@
     white-space: nowrap;
     padding: 20px 0;
     margin-top: 0;
+
+    .login-bar {
+        width: 100%;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        display: flex;
+        justify-content: end;
+
+        .username {
+            margin: 0;
+            padding-right: 10px;
+        }
+    }
+}
+
+ul {
+    display: flex;
+    gap: 40px;
 }
 
 li {
