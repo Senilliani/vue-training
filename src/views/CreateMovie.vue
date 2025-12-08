@@ -18,6 +18,7 @@
 import { reactive } from 'vue';
 import HeaderComponent from '../components/HeaderComponent.vue';
 import { useMovieStore } from '../stores/movie';
+import router from '../router/index.js'
 
 const movieStore = useMovieStore()
 
@@ -33,6 +34,12 @@ const handleSubmit = () => {
         return
     }
     movieStore.addMovie({ ...movie }) // paso por valor para no modificar el original
+
+    movie.title = ""
+    movie.duration = 0
+    movie.director = ""
+
+    router.push({ name: "movies" })
 }
 </script>
 
