@@ -15,7 +15,7 @@
 </template>
 
 <script setup>
-import { reactive } from 'vue';
+import { onUpdated, reactive } from 'vue';
 import HeaderComponent from '../components/HeaderComponent.vue';
 import { useMovieStore } from '../stores/movie';
 import router from '../router/index.js'
@@ -41,6 +41,10 @@ const handleSubmit = () => {
 
     router.push({ name: "movies" })
 }
+
+onUpdated(() => {
+    console.log("componente create movie actualizado")
+})
 </script>
 
 <style scoped>

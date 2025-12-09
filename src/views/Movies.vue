@@ -17,10 +17,19 @@
 </template>
 
 <script setup>
+import { onMounted, onUnmounted } from 'vue';
 import HeaderComponent from '../components/HeaderComponent.vue';
 import { useMovieStore } from '../stores/movie';
 
 const movieStore = useMovieStore()
+
+onMounted(() => {
+    console.log("se ha montado el componente")
+})
+
+onUnmounted(() => {
+    console.log("componente desmontado")
+})
 </script>
 
 <style scoped>
