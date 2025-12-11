@@ -11,6 +11,7 @@
                 <li><router-link class="link" to="/">Home Page</router-link></li>
                 <li><router-link class="link" to="/movies">Movies</router-link></li>
                 <li><router-link class="link" :to="{ name: 'create' }">Create movies</router-link></li>
+                <li><router-link class="link" to="/notes">Notes</router-link></li>
             </ul>
         </nav>
     </header>

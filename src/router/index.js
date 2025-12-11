@@ -3,6 +3,7 @@ import Home from "../views/Home.vue";
 import Movies from "../views/Movies.vue";
 import CreateMovie from "../views/CreateMovie.vue";
 import MovieDetails from "../views/MovieDetails.vue";
+import Notes from "../views/Notes.vue";
 
 const router = createRouter({
   history: createWebHistory(),
@@ -26,6 +27,11 @@ const router = createRouter({
       path: "/create",
       name: "create",
       component: CreateMovie,
+    },
+    {
+      path: "/notes",
+      name: "notes",
+      component: Notes,
     },
   ],
 });
