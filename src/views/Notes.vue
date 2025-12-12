@@ -2,9 +2,16 @@
     <HeaderComponent />
     <section id="notes-page">
         <h2>
-            Notes
+            Notas
         </h2>
-        <ul class="note-list">
+
+        <h2 v-if="noteStore.loading">Cargando...</h2>
+
+        <h2 v-else-if="noteStore.error">
+            Algo ha ido mal
+        </h2>
+
+        <ul v-else class="note-list">
             <li>
                 <CreateNote />
             </li>
@@ -20,12 +27,17 @@
 </template>
 
 <script setup>
+import { onMounted } from 'vue';
 import HeaderComponent from '../components/HeaderComponent.vue';
 import NoteCard from '../components/NoteCard.vue';
 import { useNoteStore } from '../stores/note';
 import CreateNote from './CreateNote.vue';
 
 const noteStore = useNoteStore()
+
+onMounted(async () => {
+    await noteStore.getNotes()
+})
 </script>
 
 <style scoped>
