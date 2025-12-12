@@ -1,7 +1,7 @@
 <template>
     <form class="note-form" @submit.prevent="handleSubmit">
-        <input type="text" class="note-title" placeholder="Nueva nota" v-model="description">
-        <button class="create-btn">+</button>
+        <input type="text" class="note-title" placeholder="Escribe aquí tu nota" v-model="description">
+        <button class="create-btn" :disabled="description === ''">+</button>
     </form>
 </template>
 
