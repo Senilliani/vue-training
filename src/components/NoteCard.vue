@@ -16,7 +16,6 @@ defineProps({
 
 <style scoped>
 .note-card {
-    width: 400px;
     background-color: lightgoldenrodyellow;
     border: 3px solid #022;
     padding: 20px 30px;

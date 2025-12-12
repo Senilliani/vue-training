@@ -28,21 +28,20 @@ const noteStore = useNoteStore()
     display: flex;
     flex-direction: column;
     align-items: center;
+}
 
-    .title {
-        margin-bottom: 50px;
-        text-align: center;
-    }
+.note-list {
+    border: 10px solid brown;
+    padding: 10px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
 
+@media (min-width: 865px) {
     .note-list {
-        border: 10px solid brown;
-        width: 70%;
-        min-width: 450px;
         padding: 30px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
     }
 }
 </style>

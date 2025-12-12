@@ -8,7 +8,7 @@
         </div>
         <nav>
             <ul>
-                <li><router-link class="link" to="/">Home Page</router-link></li>
+                <li><router-link class="link" to="/">Home</router-link></li>
                 <li><router-link class="link" to="/movies">Movies</router-link></li>
                 <li><router-link class="link" :to="{ name: 'create' }">Create movies</router-link></li>
                 <li><router-link class="link" to="/notes">Notes</router-link></li>
@@ -31,11 +31,10 @@ onMounted(() => {
 <style scoped>
 .nav-list {
     display: flex;
-    gap: 40px;
+    gap: 10px;
     background-color: brown;
     justify-content: space-evenly;
     align-items: center;
-    white-space: nowrap;
     padding: 20px 0;
     margin-top: 0;
 
@@ -56,11 +55,11 @@ onMounted(() => {
 
 ul {
     display: flex;
-    gap: 40px;
 }
 
 li {
     list-style: none;
+    padding-right: 20px;
 }
 
 .link {

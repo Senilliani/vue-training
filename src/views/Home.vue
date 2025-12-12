@@ -1,7 +1,7 @@
 <template>
     <HeaderComponent />
     <div>
-        Home Page
+        Home
     </div>
 </template>
 
