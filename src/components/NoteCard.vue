@@ -1,17 +1,37 @@
 <template>
     <div>
         <article class="note-card">
-            <input type="text" class="card-title" v-model="note.title">
-            <input type="checkbox" v-model="note.marked">
+            <input type="text" class="card-title" v-model="note.description" @blur="updateNoteDescription">
+            <input type="checkbox" v-model="note.marked" @change="updateNoteMarked" style="cursor: pointer;">
+            <button class="btn-remove" @click="removeNote">🗑️</button>
         </article>
     </div>
 </template>
 
 <script setup>
-// si en el html usaría ":value" sería unidireccional
-defineProps({
+import { useNoteStore } from '../stores/note';
+
+const props = defineProps({
     note: Object
 })
+
+const noteStore = useNoteStore()
+
+const updateNoteDescription = () => {
+    noteStore.updateNote(props.note.id, {
+        description: props.note.description
+    })
+}
+
+const updateNoteMarked = () => {
+    noteStore.updateNote(props.note.id, {
+        marked: props.note.marked
+    })
+}
+
+const removeNote = () => {
+    noteStore.deleteNote(props.note.id)
+}
 </script>
 
 <style scoped>
@@ -46,6 +66,11 @@ defineProps({
         .card-title {
             font-weight: 100;
         }
+    }
+
+    .btn-remove {
+        margin-left: 10px;
+        cursor: pointer;
     }
 }
 </style>
