@@ -5,6 +5,12 @@
             Notas
         </h2>
 
+        <div>
+            <label for="usingAPI">Using API</label>
+            <input type="checkbox" id="usingAPI" v-model="noteStore.usingAPI" @change="noteStore.getNotes"
+                style="cursor: pointer;">
+        </div>
+
         <h2 v-if="noteStore.loading">Cargando...</h2>
 
         <h2 v-else-if="noteStore.error">
