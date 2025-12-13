@@ -1,7 +1,7 @@
 <template>
     <div>
         <article class="note-card">
-            <input type="text" class="card-title" v-model="note.description" @blur="updateNoteDescription">
+            <input type="text" class="card-title" v-model="note.title" @blur="updateNoteTitle">
             <input type="checkbox" v-model="note.marked" @change="updateNoteMarked" style="cursor: pointer;">
             <button class="btn-remove" @click="removeNote">🗑️</button>
         </article>
@@ -17,9 +17,9 @@ const props = defineProps({
 
 const noteStore = useNoteStore()
 
-const updateNoteDescription = () => {
+const updateNoteTitle = () => {
     noteStore.updateNote(props.note.id, {
-        description: props.note.description
+        title: props.note.title
     })
 }
 

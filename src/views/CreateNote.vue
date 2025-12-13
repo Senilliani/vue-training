@@ -1,7 +1,7 @@
 <template>
     <form class="note-form" @submit.prevent="handleSubmit">
-        <input type="text" class="note-title" placeholder="Escribe aquí tu nota" v-model="description">
-        <button class="create-btn" :disabled="description === ''">+</button>
+        <input type="text" class="note-title" placeholder="Escribe aquí tu nota" v-model="title">
+        <button class="create-btn" :disabled="title === ''">+</button>
     </form>
 </template>
 
@@ -11,11 +11,11 @@ import { useNoteStore } from '../stores/note';
 
 const noteStore = useNoteStore()
 
-const description = ref("")
+const title = ref("")
 
 const handleSubmit = () => {
-    noteStore.addNote(description.value)
-    description.value = ""
+    noteStore.addNote(title.value)
+    title.value = ""
 }
 </script>
 
